@@ -10,6 +10,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 echo "=== Usando Java 21 ===" 
 java -version
 echo ""
+echo "=== Verificando Maven ===" 
+mvn -version
+echo ""
 
 # Ejecutar Maven con Spring Boot
 echo "=== Iniciando aplicación con Spring Boot ==="

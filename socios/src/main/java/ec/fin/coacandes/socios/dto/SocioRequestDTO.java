@@ -37,6 +37,9 @@ public class SocioRequestDTO {
     private String direccion;
 
     @NotNull(message = "El tipo de identificación es obligatorio")
-    @Schema(example = "CEDULA", allowableValues = {"CEDULA", "RUC"})
+    @Schema(example = "CEDULA", allowableValues = { "CEDULA", "RUC" })
     private String tipoIdentificacion;
+
+    @Schema(description = "Estado del socio (true=activo, false=inactivo)", example = "true", defaultValue = "true")
+    private Boolean activo;
 }
