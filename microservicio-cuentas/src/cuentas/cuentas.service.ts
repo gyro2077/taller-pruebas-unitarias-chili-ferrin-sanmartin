@@ -153,11 +153,11 @@ export class CuentasService {
       throw new ConflictException('La cuenta no está activa');
     }
 
-    if (cuenta.saldo < monto) {
+    if (Number(cuenta.saldo) < monto) {
       throw new ConflictException('Saldo insuficiente');
     }
 
-    cuenta.saldo -= monto;
+    cuenta.saldo = Number(cuenta.saldo) - monto;
     const cuentaActualizada = await this.cuentaRepository.save(cuenta);
     return this.mapToResponse(cuentaActualizada);
   }
@@ -175,7 +175,7 @@ export class CuentasService {
       throw new ConflictException('La cuenta no está activa');
     }
 
-    cuenta.saldo += monto;
+    cuenta.saldo = Number(cuenta.saldo) + monto;
     const cuentaActualizada = await this.cuentaRepository.save(cuenta);
     return this.mapToResponse(cuentaActualizada);
   }
